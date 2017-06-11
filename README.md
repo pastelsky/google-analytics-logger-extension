@@ -1,11 +1,11 @@
 <div align="center">
-  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" />
+  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="200px"/>
   <h1>
     Google Analytics Logger 
   </h1>
 </div>
 
-A browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events.
+A WIP browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events.
 
 ## Features
 
