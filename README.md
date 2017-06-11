@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="180"/>
+  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="160"/>
   <h1>
     Google Analytics Logger 
   </h1>
@@ -16,7 +16,9 @@ A WIP browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExte
 - Organises events tab-wise.
 
 ## Screenshots
-![Logger](https://s12.postimg.org/cqo4b5y7h/Group_2.png)
+<div align="center">
+  <img src="https://s12.postimg.org/cqo4b5y7h/Group_2.png" width="250" />
+</div>
 
 ## Installation
 1. Clone the repository `git clone https://github.com/pastelsky/google-analytics-logger-extension.git`
