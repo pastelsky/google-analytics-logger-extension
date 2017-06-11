@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="180px"/>
+  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="180"/>
   <h1>
     Google Analytics Logger 
   </h1>
