@@ -1,5 +1,9 @@
-# Google Analytics Logger
-![Logo](https://s14.postimg.org/clr1cwkup/icon-128.png)
+<div align="center">
+  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" />
+  <h1>
+    Google Analytics Logger 
+  </h1>
+</div>
 
 A browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events.
 
