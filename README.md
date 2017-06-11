@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="200px"/>
+  <img src="https://s14.postimg.org/clr1cwkup/icon-128.png" width="180px"/>
   <h1>
     Google Analytics Logger 
   </h1>
@@ -14,6 +14,9 @@ A WIP browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExte
 - Supports Google Analytics events fired through Google Tag Manager.
 - Warns if sending of event failed (due to network error / blocking) and if duplicate events are being sent.
 - Organises events tab-wise.
+
+## Screenshots
+![Logger](https://s12.postimg.org/cqo4b5y7h/Group_2.png)
 
 ## Installation
 1. Clone the repository `git clone https://github.com/pastelsky/google-analytics-logger-extension.git`
