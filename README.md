@@ -17,7 +17,7 @@ A WIP browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExte
 
 ## Screenshots
 <div align="center">
-  <img src="https://s12.postimg.org/cqo4b5y7h/Group_2.png" width="350" />
+  <img src="https://s12.postimg.org/cqo4b5y7h/Group_2.png" width="600" />
 </div>
 
 ## Installation
