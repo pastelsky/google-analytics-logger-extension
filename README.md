@@ -21,6 +21,9 @@ A WIP browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExte
 </div>
 
 ## Installation
+You can find developer builds of this extension on the [relases page](https://github.com/pastelsky/google-analytics-logger-extension/releases/tag/v0.0.2). If everything goes alright, you may see it in extension stores of chrome, firefox and opera soon!
+
+## Contributing
 1. Clone the repository `git clone https://github.com/pastelsky/google-analytics-logger-extension.git`
 2. Run `yarn install`
 3. Run `yarn run build`
