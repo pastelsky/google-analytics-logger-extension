@@ -19,9 +19,10 @@ A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that
 - Better support for enhanced ecommerce events
 
 ## Installation
-** Chrome ** - [Chrome Web Store](https://chrome.google.com/webstore/detail/google-analytics-logger/mnocefeloijpdenhbidaoildegppmkoi?hl=en&gl=IN&authuser=2)
 
-** Firefox and Opera** - Coming Soon
+**Chrome** - [Chrome Web Store](https://chrome.google.com/webstore/detail/google-analytics-logger/mnocefeloijpdenhbidaoildegppmkoi?hl=en&gl=IN&authuser=2)
+
+**Firefox and Opera** - Coming Soon
 
 You can find developer builds of this extension on the [relases page](https://github.com/pastelsky/google-analytics-logger-extension/releases/tag/v0.0.2).
 
