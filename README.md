@@ -5,7 +5,7 @@
   </h1>
 </div>
 
-A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events. It's also easy on the eyes.
+A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events. Unlike it's peers, this one is easy on the eyes.
 
 ## Features
 
@@ -14,6 +14,9 @@ A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that
 - Supports Google Analytics events fired through Google Tag Manager.
 - Warns if sending of event failed (due to network error / blocking) and if duplicate events are being sent.
 - Organises events tab-wise.
+
+#### Coming Soon ?
+- Better support for enhanced ecommerce events
 
 ## Screenshots
 <div align="center">
