@@ -18,17 +18,17 @@ A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that
 #### Coming Soon ?
 - Better support for enhanced ecommerce events
 
+## Installation
+** Chrome ** - [Chrome Web Store](https://chrome.google.com/webstore/detail/google-analytics-logger/mnocefeloijpdenhbidaoildegppmkoi?hl=en&gl=IN&authuser=2)
+
+** Firefox and Opera** - Coming Soon
+
+You can find developer builds of this extension on the [relases page](https://github.com/pastelsky/google-analytics-logger-extension/releases/tag/v0.0.2).
+
 ## Screenshots
 <div align="center">
   <img src="https://s12.postimg.org/cqo4b5y7h/Group_2.png" width="650" />
 </div>
-
-## Installation
-**[Chrome Web Store](https://chrome.google.com/webstore/detail/google-analytics-logger/mnocefeloijpdenhbidaoildegppmkoi?hl=en&gl=IN&authuser=2)
-
-** Firefox and Opera - Coming Soon
-
-You can find developer builds of this extension on the [relases page](https://github.com/pastelsky/google-analytics-logger-extension/releases/tag/v0.0.2).
 
 ## Contributing
 1. Clone the repository `git clone https://github.com/pastelsky/google-analytics-logger-extension.git`
