@@ -5,7 +5,7 @@
   </h1>
 </div>
 
-A WIP browser [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events.
+A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that provides accurate logging for Google Analytics events. It's also easy on the eyes.
 
 ## Features
 
