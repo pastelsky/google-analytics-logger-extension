@@ -24,7 +24,11 @@ A [WebExtension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) that
 </div>
 
 ## Installation
-You can find developer builds of this extension on the [relases page](https://github.com/pastelsky/google-analytics-logger-extension/releases/tag/v0.0.2). If everything goes alright, you may see it in extension stores of chrome, firefox and opera soon!
+**[Chrome Web Store](https://chrome.google.com/webstore/detail/google-analytics-logger/mnocefeloijpdenhbidaoildegppmkoi?hl=en&gl=IN&authuser=2)
+
+** Firefox and Opera - Coming Soon
+
+You can find developer builds of this extension on the [relases page](https://github.com/pastelsky/google-analytics-logger-extension/releases/tag/v0.0.2).
 
 ## Contributing
 1. Clone the repository `git clone https://github.com/pastelsky/google-analytics-logger-extension.git`
@@ -35,12 +39,12 @@ You can find developer builds of this extension on the [relases page](https://gi
 ##### Load the extension in Chrome & Opera
 1. Open Chrome/Opera browser and navigate to chrome://extensions
 2. Select "Developer Mode" and then click "Load unpacked extension..."
-3. From the file browser, choose to `extension-boilerplate/build/chrome` or (`extension-boilerplate/build/opera`)
+3. From the file browser, choose to `google-analytics-logger-extension/build/chrome` or (`google-analytics-logger-extension/build/opera`)
 
 
 ##### Load the extension in Firefox
 1. Open Firefox browser and navigate to about:debugging
-2. Click "Load Temporary Add-on" and from the file browser, choose `extension-boilerplate/build/firefox`
+2. Click "Load Temporary Add-on" and from the file browser, choose `google-analytics-logger-extension/build/firefox`
 
 
 ## Developing
