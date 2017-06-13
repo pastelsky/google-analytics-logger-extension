@@ -17,7 +17,6 @@
     "tabs",
     "storage",
     "clipboardWrite",
-    "clipboardRead",
     "http://*/*",
     "https://*/*",
     "webRequest",
