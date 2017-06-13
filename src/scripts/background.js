@@ -2,6 +2,33 @@ import ext from "./utils/ext"
 import queryString from 'query-string'
 
 let entries = []
+let channel
+let isConnected = false
+
+ext.runtime.onConnect.addListener((messageChannel) => {
+  channel = messageChannel
+
+  channel.onMessage.addListener((message) => {
+    switch (message.type) {
+      case 'PULL_ENTRIES':
+        isConnected = true
+        channel.postMessage({
+          type: 'UPDATE_ENTRY',
+          entries,
+        })
+        break;
+
+      case 'CLEAR_ENTRIES':
+        entries = entries.filter(e => e.tabId !== message.tabId)
+        break;
+    }
+  });
+
+  channel.onDisconnect.addListener(() => {
+    isConnected = false
+  })
+})
+
 
 function parseClassicGAEventString(eventString) {
   let data = {
@@ -99,26 +126,17 @@ function processURL(req, isSuccess, isPost = false) {
   }
 
   entries.push(data)
-  ext.runtime.sendMessage({
-    type: 'UPDATE_ENTRY',
-    entries,
-  })
 
-  ext.runtime.onMessage.addListener((message) => {
-    switch (message.type) {
-      case 'PULL_ENTRIES':
-        ext.runtime.sendMessage({
-          type: 'UPDATE_ENTRY',
-          entries,
-        })
-        break;
-
-      case 'CLEAR_ENTRIES':
-        entries = entries.filter(e => e.tabId !== message.tabId)
-        break;
-    }
-  })
+  if(isConnected) {
+    console.log(channel)
+    channel.postMessage({
+      type: 'UPDATE_ENTRY',
+      entries,
+    })
+  }
 }
+
+
 
 ext.webRequest.onHeadersReceived.addListener(
   (req) => processURL(req, true),

@@ -1,4 +1,5 @@
 import ext from "./utils/ext";
+import storage from "./utils/storage";
 import cx from 'classnames'
 import React, { Component } from "react"
 import { render } from 'react-dom'
@@ -12,6 +13,10 @@ import RedirectIcon from 'react-icons/lib/md/call-missed-outgoing'
 
 import truncate from 'truncate-middle'
 import CopyToClipboard from 'react-copy-to-clipboard';
+
+const channel = ext.extension.connect({
+  name: "Events",
+});
 
 const DetailsCell = ({ details }) => {
   const compacted = details.filter(d => d.value)
@@ -44,7 +49,7 @@ const TypeBadge = ({ type }) => {
   )
 }
 
-const EventsTable = ({ entries }) => {
+const EventsTable = ({ entries, entriesCount }) => {
   const getCleanURL = (url) => {
     const urlObj = new URL(url)
     const cleanURL = urlObj.hostname + urlObj.pathname + urlObj.search
@@ -78,7 +83,7 @@ const EventsTable = ({ entries }) => {
     dataIndex: 'type',
     className: 'type-column',
     render: (type, record) => (<TypeBadge type={ type } />),
-    width: 15,
+    width: 10,
   }, {
     title: 'Details',
     key: 'details',
@@ -92,6 +97,9 @@ const EventsTable = ({ entries }) => {
           }, {
             title: 'Action',
             value: record.action,
+          }, {
+            title: 'Label',
+            value: record.label,
           }, {
             title: 'Value',
             value: record.value,
@@ -235,21 +243,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+    channel.postMessage({ type: "PULL_ENTRIES" })
+
     ext.tabs.query(
       { currentWindow: true, active: true },
       (tabs) => {
         this.tabId = tabs[0].id
-        ext.runtime.sendMessage({ type: 'PULL_ENTRIES' })
 
-        ext.runtime
-          .onMessage
-          .addListener((message) => {
-            if (message.type === 'UPDATE_ENTRY')
-              this.setState({
-                entries: message.entries.filter(
-                  e => e.tabId === this.tabId),
-              })
-          })
+        channel.onMessage.addListener((message) => {
+          if (message.type === 'UPDATE_ENTRY') {
+            this.setState({
+              entries: message.entries.filter(e => e.tabId === this.tabId),
+            }, this.recalcPopupSize)
+          }
+        });
       })
   }
 
