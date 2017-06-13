@@ -213,6 +213,7 @@ const EventsTable = ({ entries, entriesCount }) => {
 
     return false
   }
+  const limitedEntries = entries.slice(-entriesCount)
   return (
     <Table
       emptyText="No Events"
@@ -220,7 +221,7 @@ const EventsTable = ({ entries, entriesCount }) => {
       //scroll={ { x: false, y: 400 } }
       className="events-table"
       columns={ columns }
-      data={ entries }
+      data={ limitedEntries }
       rowKey={ (record, index) => index }
       rowClassName={ (record, index) => cx(`row__type--${record.type}`, {
         'event--duplicate': isDuplicateEvent(index),
@@ -236,10 +237,12 @@ class App extends Component {
     super(props)
     this.state = {
       entries: [],
+      entriesCount: 10,
     }
     this.tabId = null;
 
     this.handleClearClick = this.handleClearClick.bind(this)
+    this.handleEntriesSelectChange = this.handleEntriesSelectChange.bind(this)
   }
 
   componentDidMount() {
@@ -258,20 +261,59 @@ class App extends Component {
           }
         });
       })
+
+    storage.get('entriesCount', ({ entriesCount }) => {
+      this.setState({ entriesCount })
+    })
   }
 
   handleClearClick() {
-    ext.runtime.sendMessage({ type: 'CLEAR_ENTRIES', tabId: this.tabId })
+    channel.postMessage({ type: 'CLEAR_ENTRIES' });
     this.setState({ entries: [] })
   }
 
+  handleEntriesSelectChange(e) {
+    const count = parseInt(e.target.value)
+    this.setState({ entriesCount: count })
+    storage.set({ entriesCount: count })
+
+    this.recalcPopupSize()
+  }
+
+  recalcPopupSize() {
+    // Workaround for jump due to late component mounting
+    const { width, height } = this.popup.getBoundingClientRect()
+    document.body.style.width = `${width}px`
+    document.body.style.height = `${height}px`
+  }
+
   render() {
-    const { entries } = this.state
+    const { entries, entriesCount } = this.state
     return (
-      <div>
-        <EventsTable entries={ entries } />
+      <div ref={ p => (this.popup = p) }>
+        <EventsTable entries={ entries } entriesCount={ entriesCount } />
         <div className="toolbar">
-          <CopyToClipboard text={ JSON.stringify(this.state.entries, null, 2) }>
+          <div className="select-entries-container">
+            Last
+            <select
+              value={ entriesCount }
+              className="select-entries"
+              onChange={ this.handleEntriesSelectChange }
+            >
+              {
+                [10, 20, 35].map(count => (
+                  <option value={ count } key={ count }>
+                    { count }
+                  </option>
+                ))
+              }
+              <option value="1000">All</option>
+            </select>
+            events
+          </div>
+          <CopyToClipboard
+            text={ JSON.stringify(this.state.entries.slice(-entriesCount), null, 2) }
+          >
             <button className="icon-button" title="Copy as JSON">
               <CopyIcon />
               <label>
@@ -279,7 +321,11 @@ class App extends Component {
               </label>
             </button>
           </CopyToClipboard>
-          <button className="icon-button" title="Clear" onClick={ this.handleClearClick }>
+          <button
+            className="icon-button"
+            title="Clear"
+            onClick={ this.handleClearClick }
+          >
             <ClearIcon />
             <label>
               Clear
@@ -290,7 +336,6 @@ class App extends Component {
     )
   }
 }
-
 
 render((
   <App />
