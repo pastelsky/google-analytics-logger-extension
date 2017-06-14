@@ -1,7 +1,7 @@
 {
   "name": "Google Analytics Logger",
   "short_name": "GA Logger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "Check if your Google analytics events are firing as they should using this convenient open-source logger.",
   "icons": {
