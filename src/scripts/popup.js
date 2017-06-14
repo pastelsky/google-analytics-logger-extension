@@ -268,7 +268,7 @@ class App extends Component {
   }
 
   handleClearClick() {
-    channel.postMessage({ type: 'CLEAR_ENTRIES' });
+    channel.postMessage({ type: 'CLEAR_ENTRIES', tabId: this.tabId });
     this.setState({ entries: [] })
   }
 
@@ -282,9 +282,11 @@ class App extends Component {
 
   recalcPopupSize() {
     // Workaround for jump due to late component mounting
-    const { width, height } = this.popup.getBoundingClientRect()
-    document.body.style.width = `${width}px`
-    document.body.style.height = `${height}px`
+    requestAnimationFrame(() => {
+      const { width, height } = this.popup.getBoundingClientRect()
+    })
+    //document.body.style.width = `${width}px`
+    //document.body.style.height = `${height}px`
   }
 
   render() {

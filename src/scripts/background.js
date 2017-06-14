@@ -128,7 +128,6 @@ function processURL(req, isSuccess, isPost = false) {
   entries.push(data)
 
   if(isConnected) {
-    console.log(channel)
     channel.postMessage({
       type: 'UPDATE_ENTRY',
       entries,
