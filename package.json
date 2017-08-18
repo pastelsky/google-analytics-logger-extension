@@ -1,7 +1,7 @@
 {
-  "name": "GA Logger",
+  "name": "ga-event-logger",
   "version": "0.1.2",
-  "description": "Log Googla Analytics Events with peace.",
+  "description": "Log Googla Analytics Events with peace",
   "scripts": {
     "chrome-build": "TARGET=chrome gulp",
     "opera-build": "TARGET=opera gulp",
