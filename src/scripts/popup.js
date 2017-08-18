@@ -197,7 +197,7 @@ const EventsTable = ({ entries, entriesCount }) => {
   ]
   const getSeconds = (entry) => new Date(parseInt(entry.timestamp)).getSeconds()
   const getEventKey = (event) => getSeconds(event) +
-    event.gaId + event.category + event.action + event.label + event.value
+    event.type + event.gaId + event.category + event.action + event.label + event.value
 
   const isDuplicateEvent = (index) => {
     if (index !== (entries.length - 1) &&
