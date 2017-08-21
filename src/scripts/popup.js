@@ -214,6 +214,7 @@ const EventsTable = ({ entries, entriesCount }) => {
     return false
   }
   const limitedEntries = entries.slice(-entriesCount)
+
   return (
     <Table
       emptyText="No Events"
@@ -265,6 +266,8 @@ class App extends Component {
     storage.get('entriesCount', ({ entriesCount }) => {
       this.setState({ entriesCount })
     })
+
+    this.recalcPopupSize()
   }
 
   handleClearClick() {
@@ -282,11 +285,14 @@ class App extends Component {
 
   recalcPopupSize() {
     // Workaround for jump due to late component mounting
-    requestAnimationFrame(() => {
-      const { width, height } = this.popup.getBoundingClientRect()
-    })
-    //document.body.style.width = `${width}px`
-    //document.body.style.height = `${height}px`
+    // https://bugs.chromium.org/p/chromium/issues/detail?id=428044
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        const { width, height } = this.popup.getBoundingClientRect()
+        document.body.style.width = `${width + 1}px`
+        document.body.style.height = `${height + 1}px`
+      })
+    }, 100)
   }
 
   render() {
