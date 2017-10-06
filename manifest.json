@@ -17,8 +17,6 @@
     "tabs",
     "storage",
     "clipboardWrite",
-    "http://*/*",
-    "https://*/*",
     "webRequest",
     "<all_urls>"
   ],
@@ -29,7 +27,8 @@
     },
     "default_title": "GA Event Logger",
     "default_popup": "popup.html"
-  }
+  },
+  "devtools_page": "devtools.html"
 }
 
 
