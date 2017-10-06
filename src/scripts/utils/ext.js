@@ -5,6 +5,7 @@ const apis = [
   'commands',
   'contextMenus',
   'cookies',
+  'devtools',
   'downloads',
   'events',
   'extension',
